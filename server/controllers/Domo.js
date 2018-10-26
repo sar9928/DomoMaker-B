@@ -23,7 +23,7 @@ const makeDomo = (req, res) => {
         owner: req.session.account._id,
     };
 
-    const newDomo = new Domo.DomoModel(domoData);
+    const newDomo = new DomoModel(domoData);
 
     const domoPromise = newDomo.save();
 
@@ -83,7 +83,7 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
 DomoModel = mongoose.model('Domo', DomoSchema);
 
 const makerPage = (req, res) => {
-    Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+    DomoModel.findByOwner(req.session.account._id, (err, docs) => {
         if(err) {
             console.log(err);
             return res.status(400).json({ error: 'An error occured' });
