@@ -10,7 +10,8 @@ const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 
 const models = require('../models');
-const Domo = models.Domo;
+// WILL USE SOON
+//const Domo = models.Domo;
 
 const makeDomo = (req, res) => {
     if(!req.body.name || !req.body.age) {
